@@ -51,9 +51,7 @@ const Home = () => {
                   value={search}
                   onChange={(e) => {setSearch(e.target.value)}}
                 />
-                {/* <button className="btn btn-outline-success" type="submit">
-                  Search
-                </button> */}
+              
               </div>
             </div>
             <div className="carousel-item active">

@@ -9,19 +9,28 @@ const reducer = (state, action) => {
     return [...state,{id:action.id, name:action.name, price:action.price, qty:action.qty,size:action.size, img:action.img}];
 
     case "REMOVE":
+      console.log("action: ",action, "state :",state);
       let newState = [...state];
-      newState.splice(action.id, 1);
+      newState = newState.filter((el) => {
+        return el.id !== action.payload;
+      });
       return newState;
 
     case "UPDATE":
       let arr = [...state]
       arr.find((food,index) =>{
         if(food.id === action.id){
-          console.log(food.qty, parseInt(action.qty), action.price + food.price);
-          arr[index] = {...food, qty: parseInt(action.qty) + food.qty, price:food.price+ action.price}
+          // console.log(food.qty, parseInt(action.qty), action.price + food.price);
+          arr[index] = {...food, qty: parseInt(action.qty) + Number(food.qty), price:food.price+ action.price}
         }
       });
       return arr;  
+
+      case "DROP":
+        let emptyArray = []
+        return emptyArray;
+
+
     default:
       console.log("Error: Unknown action");
   }

@@ -21,22 +21,22 @@ const Card = ({props}) => {
   const handleAddToCart = async() => {
     let food = [];
     for(const item of data) {
-      if(item.id ===props._id){
+      if(item.id === props._id){
         food = item;
         break;
       }
     }
-    if(food !== []){
-      if(food.size === size){
-        await dispatch({type: "UPDATE", id: props._id, price: finalPrice, qty: qty});
-        return;
-      }else if(food.size !== size){
-        await dispatch({type:"ADD", id:props._id, name:props.name, price:finalPrice , qty:qty, size:size, img:props.img});
-        return;
+      if(food.length !== 0){
+        if(food.size === size){
+          await dispatch({type: "UPDATE", id: props._id, price: finalPrice, qty: qty});
+          return;
+        }else if(food.size !== size){
+          await dispatch({type:"ADD", id:props._id, name:props.name, price:finalPrice , qty:qty, size:size, img:props.img});
+          return;
+        }
       }
-    }
     await dispatch({type:"ADD", id:props._id, name:props.name, price:finalPrice , qty:qty, size:size, img:props.img});
-    // console.log(data);
+  
   }
  
   return (

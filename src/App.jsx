@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Home from './screens/Home'
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Login from './screens/Login'
 import SignUp from './screens/SignUp'
 import { CartProvider } from './components/ContextReducer'
